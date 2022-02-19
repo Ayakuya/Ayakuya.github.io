@@ -1,0 +1,104 @@
+body {
+  background-color: #212529;
+  font-family: Comfortaa;
+}
+
+div.topnav {
+  background-color: #000000;
+  overflow: hidden;
+  text-align: center;
+  height: 207px;
+  width: 3208px;
+  top: 0px;
+  left: 0px;
+  position:absolute;
+}
+
+div.topnav div {
+  position:absolute;
+  left: 930px;
+  top: 70px; 
+}
+
+div.container1 {
+  position:absolute;
+  top: 207px;
+  left: 0px;
+  height: 754px;
+  width: 3208px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+div.container1 img {
+  height: auto;
+  width: 100%;
+  margin: -525px 0 0 0;
+}
+
+#overlay {
+  position:absolute;
+  height: 754px;
+  width: 3208px;
+  top: 207px;
+  left: 0px;
+  background-color: rgba(253, 117, 26, 0.47);
+  z-index: 4;
+}
+
+#pagenotfound {
+  font-family: Montserrat;
+  position: absolute;
+  top: 455px;
+  left: 1270px;
+  font-size: 80px;
+  color: black;
+  z-index: 6;
+}
+
+div.container2 {
+  position:absolute;
+  top: 961px;
+  height: 793px;
+  width: 3208px;
+  overflow: hidden;
+  background-color: #212529;
+}
+
+
+div.container3 {
+  position:absolute;
+  top: 1754px;
+  height: 491px;
+  width: 3208px;
+  overflow: hidden;
+  background-color: #12141c;
+}
+
+#email {
+  color: white;
+  position:absolute;
+  top: 315px;
+  left: 2095px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration:none;
+}
+
+#email:hover {
+   text-decoration: underline;
+}
+
+#tel {
+  color: white;
+  position:absolute;
+  top: 365px;
+  left: 2110px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration:none;
+}
+
+#tel:hover {
+   text-decoration: underline;
+}

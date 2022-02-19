@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<script type="text/javascript">
+    function changeScreenSize() {        
+        window.resizeTo(3208, 1826);
+    }
+</script>
+
+<body onload="changeScreenSize()">
+
+	<div style="position: fixed; width:3208px; height:3px; top: 0px; left: 0px; background-color: #a44c59; z-index: 999;">
+	</div>
+
+	<script>
+	  async function loadNames() {
+	    const response = await fetch("https://ayakuya.github.io/ayakuyahw2/data.json", {
+	    	header: {
+			  'Access-Control-Allow-Origin':'*',
+			}
+	    }).then(response => response.json())
+		.then(data => {
+			console.log(data);
+			for (var i = 0; i < data.section2.length; i++) {
+				console.log("section2"+"#"+i);
+				// console.log(data.section2[i].title);
+				document.getElementById("imgsection2"+"#"+i).src = "https://ayakuya.github.io/ayakuyahw2/" + data.section2[i].image;
+				document.getElementById("titlesection2"+"#"+i).textContent = data.section2[i].heading;
+				document.getElementById("textsection2"+"#"+i).textContent = data.section2[i].text;
+			}
+			document.getElementById("textsection3#0").textContent = data.section3.text[0];
+			document.getElementById("textsection3#1").textContent = data.section3.text[1];
+			for (var i = 0; i < data.section4.length; i++) {
+				console.log("section4"+"#"+i);
+				// console.log(data.section2[i].title);
+				document.getElementById("imgsection4"+"#"+i).src = "https://ayakuya.github.io/ayakuyahw2/" + data.section4[i].image;
+				document.getElementById("titlesection4"+"#"+i).textContent = data.section4[i].heading;
+				document.getElementById("textsection4"+"#"+i).textContent = data.section4[i].text;
+			}
+		})
+		.catch(error => console.log(error));
+	  }
+	  loadNames();
+	</script> 
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<div class="topnav">
+		<div>
+		  <a href="main.html" style="font-family: Comfortaa; color: #fefefe; text-align: center; padding: 50px 120px; text-decoration: none; font-size: 55px; text-shadow: 2px 2px #f47920;"><b>Home</b></a>
+		  <a href="404.html" style="font-family: Comfortaa; color: #fefefe; text-align: center; padding: 50px 120px; text-decoration: none; font-size: 55px; text-shadow: 2px 2px #f47920;"><b>Explore</b></a>
+		  <a href="404.html" style="font-family: Comfortaa; color: #fefefe; text-align: center; padding: 50px 120px; text-decoration: none; font-size: 55px; text-shadow: 2px 2px #f47920;"><b>Contact</b></a>
+		</div>
+	</div>
+
+	<div class="container1">
+		<img src="https://ayakuya.github.io/ayakuyahw2/rodeo-drive.jpg">
+	</div>
+
+	<p style="position:absolute; top: 460px; left: 1150px; font-family: Comfortaa; color: #f37820; text-align: center; text-decoration: none; font-size: 75px; text-shadow: 2px 2px #fdf5ef; z-index: 20;"> <b>LA - The City of Angels</b> </p>
+
+	<div class="container2">
+
+		<div class="box1" id="box1">
+			<div style="position:absolute; top: 42px; left: 40px; height: 400px; width: 620px; border-radius: 10px; overflow: hidden;">
+				<img id="imgsection2#0" style="width: 100%; border-radius: 10px; bottom: 0%;" >
+			</div>
+			<p id="titlesection2#0" style="position:absolute; top: 445px; left: 40px; font-size: 40px; color: white;"></p>
+			<div id="textsection2#0" style="position:absolute; top: 550px; left: 40px; font-size: 32px; color: white; line-height: 1.5; margin-right: 45px;"></div>
+		</div>
+
+		<div class="box2" id="box2">
+			<div style="position:absolute; top: 42px; left: 40px; height: 400px; width: 620px; border-radius: 10px; overflow: hidden;">
+				<img id="imgsection2#1" style="width: 100%; border-radius: 10px;" >
+			</div>
+			<p id="titlesection2#1" style="position:absolute; top: 445px; left: 40px; font-size: 40px; color: white;"></p>
+			<div id="textsection2#1" style="position:absolute; top: 550px; left: 40px; font-size: 32px; color: white; line-height: 1.5; margin-right: 45px;"></div>
+		</div>
+
+		<div class="box3" id="box3">
+			<div style="position:absolute; top: 42px; left: 40px; height: 400px; width: 620px; border-radius: 10px; overflow: hidden;">
+				<img id="imgsection2#2" style="width: 100%; border-radius: 10px;" >
+			</div>
+			<p id="titlesection2#2" style="position:absolute; top: 445px; left: 40px; font-size: 40px; color: white;"></p>
+			<div id="textsection2#2" style="position:absolute; top: 550px; left: 40px; font-size: 32px; color: white; line-height: 1.5; margin-right: 45px;"></div>
+		</div>
+
+	</div>
+
+	<div class="container3">
+		<div style="position:absolute; top: 400px; left: 1636px; height: 607px; width: 1084px; overflow: hidden;">
+			<img src="https://ayakuya.github.io/ayakuyahw2/lasky.png" style="width: 100%;" >
+		</div>
+		<div id="textsection3#0" style="position:absolute; top: 410px; left: 560px; width: 1010px; font-size: 30px; color: white; line-height: 1.5; text-align:justify;"></div>
+		<div id="textsection3#1" style="position:absolute; top: 670px; left: 560px; width: 1010px; font-size: 30px; color: white; line-height: 1.5; text-align:justify;"></div>
+	</div>
+
+	<div class="container4">
+		<div style="position:absolute; top: 370px; left: 475px; height: 465px; width: 700px; overflow: hidden;">
+			<img id="imgsection4#0" style="width: 100%;" >
+		</div>
+		<div style="position:absolute; top: 900px; left: 1997px; height: 465px; width: 700px; overflow: hidden;">
+			<img id="imgsection4#1" style="width: 100%;" >
+		</div>
+		<b><p id="titlesection4#0" style="position:absolute; top: 320px; left: 1230px; font-size: 50px; color: white; line-height: 1.5; text-align:justify;"></p></b>
+		<div id="textsection4#0" style="position:absolute; top: 490px; width: 1460px; left: 1230px; font-size: 32px; color: white; line-height: 1.5; text-align:justify;"></div>
+		<b><p id="titlesection4#1" style="position:absolute; top: 850px; left: 1710px; font-size: 50px; color: white; line-height: 1.5; text-align:justify;"></p></b>
+		<div id="textsection4#1" style="position:absolute; top: 1020px; width: 1460px; left: 475px; font-size: 32px; color: white; line-height: 1.5; text-align:justify;"></div>
+	</div>
+
+	<div class="container5">
+		<p style="color: white; position:absolute; top: 170px; left: 480px; font-size: 33px; text-align: center;">Tip the world over on its side and everything loose will land</p>
+		<p style="color: white; position:absolute; top: 220px; left: 850px; font-size: 33px; text-align: center;">in Los Angeles.</p>
+		<p style="color: white; position:absolute; top: 315px; left: 800px; font-size: 33px; text-align: center;"><b>- Frank Lloyd Wright</b></p>
+		<p style="color: white; position:absolute; top: 50px; left: 2080px; font-size: 40px; text-align: center;"><b>Designed By</b></p>
+		<p style="color: white; position:absolute; top: 170px; left: 2140px; font-size: 30px; text-align: center;"><b>Abx Xyz</b></p>
+		<a class="email" id="email" href="mailto:info@abc.com">info@abc.com</a>
+		<a class="tel" id="tel" href="tel:123-456-7890">123-456-7890</a>
+	</div>
+</body>
+</html>
