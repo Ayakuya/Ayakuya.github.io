@@ -1,0 +1,51 @@
+#myPopup {
+  position: absolute;
+  top: 200px; 
+  left: 920px;
+  padding: 15px 15px 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-shadow:2px 3px 5px #999;
+}
+
+#myPopup2 {
+  position: absolute;
+  top: 250px; 
+  left: 920px;
+  padding: 15px 15px 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-shadow:2px 3px 5px #999;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  margin-left: -80px;
+}
+
+.popup .visible {
+  visibility: visible;
+}
+
+.popup .hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}

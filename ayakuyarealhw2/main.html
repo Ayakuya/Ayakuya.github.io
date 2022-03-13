@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<body> 
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <div>
+    <p style="top: 0px; left: 760px; position:absolute; color: #8a0000; text-align: center; font-size: 30px"><b>Blood Pressure Predictor</b></p>
+    <p style="top: 65px; left: 660px; position:absolute; color: #8a0000; text-align: center; font-size: 25px">Fill out the form to get your Blood Pressure estimate!</p>
+  </div>
+
+  <div>
+    <p style="top: 140px; left: 770px; position:absolute; color: black; text-align: center; font-size: 25px"><b>Age</b></p>
+    <p style="top: 140px; left: 815px; position:absolute; color: red; text-align: center; font-size: 25px"><b>*</b></p>
+    <input style="top: 167px; left: 840px; position:absolute; font-size: 15px; height: 25px; width: 220px;" type="number" id="age" name="age" placeholder="Enter age in years">
+    <p style="top: 190px; left: 736px; position:absolute; color: black; text-align: center; font-size: 25px"><b>Weight</b></p>
+    <p style="top: 190px; left: 815px; position:absolute; color: red; text-align: center; font-size: 25px"><b>*</b></p>
+    <input style="top: 217px; left: 840px; position:absolute; font-size: 15px; height: 25px; width: 220px;" type="number" id="weight" name="weight" placeholder="Enter weight in kg">
+  </div>
+  
+  
+  <div>
+    <button style="top: 280px; left: 850px; border: none; position:absolute; color: #8a0000; text-align: center; height: 34px; width: 120px; font-size: 20px; color: white; background-color: #506ba7;" onclick="check();">Calculate</button>
+  </div>
+  
+  <b><p id="sbp" style="top: 320px; left: 840px; position:absolute; color: black; text-align: center; font-size: 20px;"></p></b>
+  
+  <div class="popup">
+    <span class="popuptext" id="myPopup">Please enter a number.</span>
+  </div>
+
+  <div class="popup">
+    <span class="popuptext" id="myPopup2">Please enter a number.</span>
+  </div>
+
+  <script>
+    function remove1() {
+      var popup2 = document.getElementById("myPopup");
+        if (popup2.classList.contains("visible")) {
+            popup2.classList.replace("visible", "hidden");
+        }
+    }
+
+    function remove2() {
+      var popup2 = document.getElementById("myPopup2");
+      if (popup2.classList.contains("visible")) {
+        popup2.classList.replace("visible", "hidden");
+      }
+    }
+
+    function check() {
+      age = document.getElementById("age").value;
+      console.log(age)
+      if (!parseInt(age)) {
+        document.getElementById("sbp").innerHTML = "";
+        var popup = document.getElementById("myPopup");
+        if (popup.classList.contains("hidden")) {
+          popup.classList.remove("hidden");
+        }
+        popup.classList.add("visible");
+
+        remove2();
+
+        setTimeout(function() {
+          popup.classList.replace("visible", "hidden");
+        }, 5000);
+      } else {
+        document.getElementById("sbp").innerHTML = "";
+        weight = document.getElementById("weight").value;
+        console.log(weight);
+        if (!parseInt(weight)) {
+          var popup = document.getElementById("myPopup2");
+          if (popup.classList.contains("hidden")) {
+            popup.classList.remove("hidden");
+          }
+          popup.classList.add("visible");
+
+          remove1();
+
+          setTimeout(function() {
+            popup.classList.replace("visible", "hidden");
+          }, 5000);
+        } else {
+          remove1();
+          remove2();
+          document.getElementById("sbp").innerHTML = "";
+          age = parseInt(age);
+          weight = parseInt(weight);
+          data = [age, weight];
+          console.log(JSON.stringify(data));
+          fetch('http://127.0.0.1:5000/', {
+          // fetch('http://asukayuno.pythonanywhere.com/',{
+            method : "POST",
+            headers: {
+              'Access-Control-Allow-Origin':'*'
+            },
+            body: JSON.stringify(data)
+          }).then(response => response.json())
+          .then(data => document.getElementById("sbp").innerHTML = data["sbp"]);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
